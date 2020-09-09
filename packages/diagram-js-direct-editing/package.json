@@ -1,0 +1,27 @@
+{
+  "name": "@types/diagram-js-direct-editing",
+  "version": "0.0.1",
+  "description": "Type declarations for diagram-js-direct-editing.",
+  "keywords": [
+    "diagram",
+    "editing",
+    "types"
+  ],
+  "author": "Robert Stelzmann <robert.stelzmann@isax.com>",
+  "homepage": "https://bitbucket.org/isaxgmbhcokg/diagrams#readme",
+  "license": "ISC",
+  "types": "index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://isax.jfrog.io/isax/api/npm/npm/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://isax-robert_stelzmann@bitbucket.org/isaxgmbhcokg/diagrams.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}

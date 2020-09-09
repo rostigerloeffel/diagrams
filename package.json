@@ -17,5 +17,10 @@
     "@babel/preset-typescript": "^7.10.4",
     "lerna": "^3.22.1",
     "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "@types/diagram-js": "file:packages\\diagram-js",
+    "@types/diagram-js-direct-editing": "file:packages\\diagram-js-direct-editing",
+    "@types/didi": "file:packages\\didi"
   }
 }
