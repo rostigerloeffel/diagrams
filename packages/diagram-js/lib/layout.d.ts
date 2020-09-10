@@ -35,7 +35,9 @@ declare module 'diagram-js/lib/layout/ManhattanLayout' {
   export function withoutRedundantPoints(waypoints: Point[]): Point[]
 }
 
-declare module 'diagram-js/lib/layout/CroppingConnectionDocking'
+declare module 'diagram-js/lib/layout/CroppingConnectionDocking' {
+  export default class CroppingConnectionDocking {}
+}
 
 declare module 'diagram-js/lib/layout/LayoutUtil' {
   import { Point, Bounds } from 'diagram-js/lib/core'
