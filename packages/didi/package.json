@@ -11,7 +11,8 @@
   "license": "ISC",
   "types": "index.d.ts",
   "files": [
-    "lib"
+    "lib",
+    "index.d.ts"
   ],
   "publishConfig": {
     "registry": "https://isax.jfrog.io/isax/api/npm/npm/"
