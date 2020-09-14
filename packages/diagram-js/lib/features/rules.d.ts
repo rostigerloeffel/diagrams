@@ -8,6 +8,8 @@ declare module 'diagram-js/lib/features/rules' {
 
   export interface RuleProvider {
     addRule(action: string | string[], priority: number, fn: Callback): void
+    addRule(action: string | string[], fn: Callback): void
+
     init(): void
   }
 }
@@ -20,6 +22,8 @@ declare module 'diagram-js/lib/features/rules/RuleProvider' {
     constructor(eventBus: EventBus)
 
     addRule(action: string | string[], priority: number, fn: Callback): void
+    addRule(action: string | string[], priority: number, fn: Callback): void
+
     abstract init(): void
   }
 }
