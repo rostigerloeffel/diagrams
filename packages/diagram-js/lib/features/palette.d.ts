@@ -14,7 +14,7 @@ declare module 'diagram-js/lib/features/palette/Palette' {
 
   export default class Palette {
     constructor(eventBus: EventBus, canvas: Canvas)
-    registerProvider(priority: number, provider: PaletteProvider)
-    registerProvider(provider: PaletteProvider)
+    registerProvider(priority: number, provider: PaletteProvider): void
+    registerProvider(provider: PaletteProvider): void
   }
 }

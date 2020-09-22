@@ -9,7 +9,7 @@ declare module 'diagram-js/lib/features/create' {
 
 declare module 'diagram-js/lib/features/create/Create' {
   import { Base } from 'diagram-js/lib/model'
-  import { Canvas, EventBus } from 'diagram-js/lib/core'
+  import { Canvas, EventBus, Point } from 'diagram-js/lib/core'
   import { Modeling } from 'diagram-js/lib/features/modeling'
 
   export interface Create {
@@ -47,8 +47,8 @@ declare module 'diagram-js/lib/features/create/CreatePreview' {
 declare module 'diagram-js/lib/features/create/CreateConnectPreview' {
   import { Injector } from 'didi'
   import { EventBus } from 'diagram-js/lib/core'
-  
-  export default class DefaultCreateConnectPreview implements CreateConnectPreview {
+
+  export default class DefaultCreateConnectPreview {
     constructor(injector: Injector, eventBus: EventBus)
   }
 }
