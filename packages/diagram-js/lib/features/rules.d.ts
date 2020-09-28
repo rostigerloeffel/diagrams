@@ -4,7 +4,7 @@ declare module 'diagram-js/lib/features/rules' {
   const module: Module
   export default module
 
-  export type Callback = (context: object) => boolean | null
+  export type Callback = (context: object) => boolean | null | undefined
 
   export interface RuleProvider {
     addRule(action: string | string[], priority: number, fn: Callback): void
