@@ -6,6 +6,10 @@ declare module 'diagram-js/lib/features/rules' {
 
   export type Callback = (context: object) => boolean | null | undefined
 
+  export interface Rules {
+    allowed(action: string, context: object): boolean | null
+  }
+
   export interface RuleProvider {
     addRule(action: string | string[], priority: number, fn: Callback): void
     addRule(action: string | string[], fn: Callback): void
@@ -15,7 +19,12 @@ declare module 'diagram-js/lib/features/rules' {
 }
 
 declare module 'diagram-js/lib/features/rules/Rules' {
-  export default class Rules {
+  import { Injector } from 'didi'
+  import Rules from 'diagram-js/lib/features/rules/Rules'
+
+  export default class implements Rules {
+    constructor(injector: Injector)
+
     allowed(action: string, context: object): boolean | null
   }
 }

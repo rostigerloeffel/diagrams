@@ -1,7 +1,7 @@
 declare module 'diagram-js/lib/features/resize' {
   import { Module } from 'didi'
   import { Shape } from 'diagram-js/lib/model'
-  import { Bounds, Dimension, Direction } from 'diagram-js/lib/core'
+  import { Bounds, Dimension, Direction, EventBus } from 'diagram-js/lib/core'
 
   const module: Module
   export default module
@@ -36,10 +36,15 @@ declare module 'diagram-js/lib/features/resize' {
 
 declare module 'diagram-js/lib/features/resize/Resize' {
   import { Shape } from 'diagram-js/lib/model'
-  import { Bounds, Dimension } from 'diagram-js/lib/core'
+  import { EventBus, Bounds, Dimension } from 'diagram-js/lib/core'
   import { Resize, DirectionOrContext } from 'diagram-js/lib/features/resize'
+  import { Rules } from 'diagram-js/lib/features/rules'
+  import { Modeling } from 'diagram-js/lib/features/modeling'
 
   export default class implements Resize {
+    // TODO: Use type for dragging
+    constructor(eventBus: EventBus, rules: Rules, modeling: Modeling, dragging: any)
+
     canResize(context: any): boolean | null
     activate(event: any, shape: Shape, contextOrDirection: DirectionOrContext): void
     computeMinResizeBox(context: {
@@ -53,9 +58,13 @@ declare module 'diagram-js/lib/features/resize/Resize' {
 
 declare module 'diagram-js/lib/features/resize/ResizeHandles' {
   import { Shape } from 'diagram-js/lib/model'
-  import { ResizeHandles, DirectionOrContext } from 'diagram-js/lib/features/resize'
+  import { EventBus, Canvas } from 'diagram-js/lib/core'
+  import { Resize, ResizeHandles, DirectionOrContext } from 'diagram-js/lib/features/resize'
 
   export default class implements ResizeHandles {
+    // TODO: Use type for seletion
+    constructor(eventBus: EventBus, canvas: Canvas, selection: any, resize: Resize)
+
     makeDraggable(element: Shape, gfx: SVGAElement, direction: DirectionOrContext): void
     createResizer(element: Shape, direction: DirectionOrContext): void
     addResizer(shape: Shape): void
@@ -64,9 +73,12 @@ declare module 'diagram-js/lib/features/resize/ResizeHandles' {
 }
 
 declare module 'diagram-js/lib/features/resize/ResizePreview' {
+  import { EventBus, Canvas } from 'diagram-js/lib/core'
   import { ResizePreview } from 'diagram-js/lib/features/resize'
 
-  export default class implements ResizePreview {}
+  export default class implements ResizePreview {
+    constructor(eventBus: EventBus, canvas: Canvas, previewSupport: any)
+  }
 }
 
 declare module 'diagram-js/lib/features/ResizeUtil' {
