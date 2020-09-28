@@ -14,6 +14,12 @@ declare module 'diagram-js/lib/features/rules' {
   }
 }
 
+declare module 'diagram-js/lib/features/rules/Rules' {
+  export default class Rules {
+    allowed(action: string, context: object): boolean | null
+  }
+}
+
 declare module 'diagram-js/lib/features/rules/RuleProvider' {
   import { EventBus } from 'diagram-js/lib/core'
   import { RuleProvider, Callback } from 'diagram-js/lib/features/rules'
