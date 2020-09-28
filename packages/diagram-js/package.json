@@ -1,6 +1,6 @@
 {
   "name": "@types/diagram-js",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Type declarations for diagram-js.",
   "keywords": [
     "diagram",
