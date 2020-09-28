@@ -94,13 +94,9 @@ declare module 'diagram-js/lib/core' {
     toggleMarker(element: string | Base, marker: string): void
     getRootElement(): Root
     setRootElement(root: object | Root, override: boolean): object | Root
-    addShape(shape: object | Shape, parent: Base, parentIndex: number): Shape
-    addShape(shape: object | Shape, parent: Base): Shape
-    addShape(shape: object | Shape): Shape
+    addShape(shape: object | Shape, parent?: Base, parentIndex?: number): Shape
     removeShape(shape: string | Shape): Shape
-    addConnection(shape: object | Connection, parent: Base, parentIndex: number): Connection
-    addConnection(shape: object | Connection, parent: Base): Connection
-    addConnection(shape: object | Connection): Connection
+    addConnection(shape: object | Connection, parent?: Base, parentIndex?: number): Connection
     removeConnection(connection: string | Connection): Connection
     getGraphics(element: string | Base, secondary: boolean): SVGElement
     viewbox(box: Bounds): Bounds
