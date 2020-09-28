@@ -73,6 +73,13 @@ declare module 'diagram-js/lib/core' {
     max: number
   }
 
+  export interface Padding {
+    left: number
+    right: number
+    top: number
+    bottom: number
+  }
+
   export interface Alignment {
     left?: number
     right?: number
@@ -82,7 +89,7 @@ declare module 'diagram-js/lib/core' {
     middle?: number
   }
 
-  export type Direction = 'n' | 's' | 'e' | 'w'
+  export type Direction = 'n' | 's' | 'w' | 'e' | 'nw' | 'ne' | 'se' | 'sw'
 
   export interface Canvas {
     getDefaultLayer(): SVGElement
