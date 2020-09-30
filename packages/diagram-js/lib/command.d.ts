@@ -14,7 +14,7 @@ declare module 'diagram-js/lib/command' {
     revert?(context: object): Base[]
   }
 
-  export type HandlerConstructor = (...params: any) => void
+  export type HandlerConstructor = new (...params: any) => void
 
   export interface CommandStack {
     canExecute(command: string, context: object): boolean
