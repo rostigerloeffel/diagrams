@@ -1,11 +1,16 @@
 declare module 'diagram-js/lib/features/modeling' {
   import { Module } from 'didi'
+  import { CommandHandler } from 'diagram-js/lib/command'
 
   const module: Module
   export default module
 
+  export interface HandlerRegistration {
+    [handlerId: string]: CommandHandler
+  }
+
   export interface Modeling {
-    getHandlers(): string[]
+    getHandlers(): HandlerRegistration
   }
 }
 
@@ -13,7 +18,7 @@ declare module 'diagram-js/lib/features/modeling/Modeling' {
   import { EventBus, ElementFactory, Point, Dimension, Bounds, Range, Alignment, Direction } from 'diagram-js/lib/core'
   import { CommandStack } from 'diagram-js/lib/command'
   import { Base, Shape, Root, Connection } from 'diagram-js/lib/model'
-  import { Modeling } from 'diagram-js/lib/features/modeling'
+  import { HandlerRegistration, Modeling } from 'diagram-js/lib/features/modeling'
 
   interface Group {
     range: Range
@@ -23,7 +28,7 @@ declare module 'diagram-js/lib/features/modeling/Modeling' {
   export default class BaseModeling implements Modeling {
     constructor(eventBus: EventBus, elementFactory: ElementFactory, commandStack: CommandStack)
 
-    getHandlers(): string[]
+    getHandlers(): HandlerRegistration
 
     moveShape(shape: Shape, delta: Point, newParent: Base, newParentIndex: number, hints: object): void
     moveShape(shape: Shape, delta: Point, newParent: Base, hints: object): void
