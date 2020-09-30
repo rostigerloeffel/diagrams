@@ -5,7 +5,7 @@ declare module 'diagram-js/lib/command' {
   export default module
 
   export interface CommandHandler {
-    canExecute?(context: object): void
+    canExecute?(context: object): boolean
     preExecute?(context: object): void
     execute?(context: object): void
     postExecute?(context: object): void
@@ -15,8 +15,8 @@ declare module 'diagram-js/lib/command' {
   export type HandlerConstructor = (...params: any) => void
 
   export interface CommandStack {
-    execute(command: string, context: object): void
     canExecute(command: string, context: object): boolean
+    execute(command: string, context: object): void
     undo(): void
     canUndo(): boolean
     redo(): void
@@ -41,9 +41,9 @@ declare module 'diagram-js/lib/command/CommandInterceptor' {
       handlerFn: InterceptorHandler,
       unwrap: boolean,
       that: object
-    ): void
-    canExecute(events: string | string[], handlerFn: InterceptorHandler, unwrap: boolean): void
-    canExecute(events: string | string[], handlerFn: InterceptorHandler): void
+    ): boolean
+    canExecute(events: string | string[], handlerFn: InterceptorHandler, unwrap: boolean): boolean
+    canExecute(events: string | string[], handlerFn: InterceptorHandler): boolean
 
     preExecute(
       events: string | string[],
