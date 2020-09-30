@@ -1,12 +1,12 @@
 declare module 'diagram-js/lib/features/modeling' {
   import { Module } from 'didi'
-  import { CommandHandler } from 'diagram-js/lib/command'
+  import { HandlerConstructor } from 'diagram-js/lib/command'
 
   const module: Module
   export default module
 
   export interface HandlerRegistration {
-    [handlerId: string]: CommandHandler
+    [handlerId: string]: HandlerConstructor
   }
 
   export interface Modeling {
