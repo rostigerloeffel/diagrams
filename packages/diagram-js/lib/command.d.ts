@@ -1,5 +1,7 @@
+
 declare module 'diagram-js/lib/command' {
   import { Module } from 'didi'
+  import { Base } from 'diagram-js/lib/model'
 
   const module: Module
   export default module
@@ -7,9 +9,9 @@ declare module 'diagram-js/lib/command' {
   export interface CommandHandler {
     canExecute?(context: object): boolean
     preExecute?(context: object): void
-    execute?(context: object): void
+    execute?(context: object): Base[]
     postExecute?(context: object): void
-    revert?(context: object): void
+    revert?(context: object): Base[]
   }
 
   export type HandlerConstructor = (...params: any) => void
