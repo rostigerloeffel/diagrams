@@ -81,7 +81,7 @@ declare module 'diagram-js/lib/features/resize/ResizePreview' {
   }
 }
 
-declare module 'diagram-js/lib/features/ResizeUtil' {
+declare module 'diagram-js/lib/features/resize/ResizeUtil' {
   import { Point, Bounds, Dimension, Padding, Direction } from 'diagram-js/lib/core'
   import { Shape } from 'diagram-js/lib/model'
 
@@ -90,6 +90,7 @@ declare module 'diagram-js/lib/features/ResizeUtil' {
     max: Padding
   }
 
+  // The typo (subStract) comes from diagramjs
   export function substractTRBL(trblA: Padding, trblB: Padding): Padding
   export function resizeBounds(bounds: Bounds, direction: Direction, delta: Point): Bounds
   export function resizeTRBL(bounds: Bounds, resize: Padding): Bounds
@@ -101,7 +102,7 @@ declare module 'diagram-js/lib/features/ResizeUtil' {
     minDimensions: Dimension,
     childrenBounds: Bounds
   ): Bounds
-  // Be careful: 'any' on padding is intented!
+  // Be careful: 'any' on padding is intended!
   export function addPadding(bbox: Bounds, padding: any | Padding): Bounds
   export function computeChildrenBBox(shapeOrChildren: Shape | Shape[], padding: any | Padding): Bounds
 }
