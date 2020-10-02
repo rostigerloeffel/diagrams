@@ -18,7 +18,7 @@ declare module 'diagram-js/lib/features/overlays' {
       minZoom: number
       maxZoom: number
     }
-    position: Padding
+    position: Partial<Padding>
     scale?: boolean|{
       min: number
       max: number
