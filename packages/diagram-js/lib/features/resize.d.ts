@@ -62,7 +62,7 @@ declare module 'diagram-js/lib/features/resize/ResizeHandles' {
   import { Resize, ResizeHandles, DirectionOrContext } from 'diagram-js/lib/features/resize'
 
   export default class implements ResizeHandles {
-    // TODO: Use type for seletion
+    // TODO: Use type for selection
     constructor(eventBus: EventBus, canvas: Canvas, selection: any, resize: Resize)
 
     makeDraggable(element: Shape, gfx: SVGAElement, direction: DirectionOrContext): void
