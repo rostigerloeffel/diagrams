@@ -3,6 +3,7 @@ declare module 'diagram-js/lib/features/auto-resize' {
   import { Shape } from 'diagram-js/lib/model'
   import { Bounds, Padding } from 'diagram-js/lib/core'
   import { CommandInterceptor } from 'diagram-js/lib/command'
+  import { RuleProvider } from 'diagram-js/lib/features/rules'
 
   const module: Module
   export default module
@@ -17,6 +18,10 @@ declare module 'diagram-js/lib/features/auto-resize' {
     getOffset(shape: Shape): Padding
     getPadding(shape: Shape): Padding
     resize(shape: Shape, newBounds: Bounds, hints: AutoResizeHints): void
+  }
+
+  export interface AutoResizeProvider extends RuleProvider {
+    canResize(elements: Shape[], target: Shape): boolean
   }
 }
 
@@ -34,5 +39,18 @@ declare module 'diagram-js/lib/features/auto-resize/AutoResize' {
     getOffset(shape: Shape): Padding
     getPadding(shape: Shape): Padding
     resize(shape: Shape, newBounds: Bounds, hints: AutoResizeHints): void
+  }
+}
+
+declare module 'diagram-js/lib/features/auto-resize/AutoResizeProvider' {
+  import { Shape } from 'diagram-js/lib/model'
+  import { EventBus } from 'diagram-js/lib/core'
+  import BaseRuleProvider from 'diagram-js/lib/features/rules/RuleProvider'
+  import { AutoResizeProvider } from 'diagram-js/lib/features/auto-resize'
+
+  export default class extends BaseRuleProvider implements AutoResizeProvider {
+    constructor(eventBus: EventBus)
+
+    canResize(elements: Shape[], target: Shape): boolean
   }
 }

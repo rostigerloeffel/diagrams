@@ -1,5 +1,6 @@
 declare module 'diagram-js/lib/features/rules' {
   import { Module } from 'didi'
+  import { CommandInterceptor } from 'diagram-js/lib/command'
 
   const module: Module
   export default module
@@ -10,7 +11,7 @@ declare module 'diagram-js/lib/features/rules' {
     allowed(action: string, context: object): boolean | null
   }
 
-  export interface RuleProvider {
+  export interface RuleProvider extends CommandInterceptor {
     addRule(action: string | string[], priority: number, fn: Callback): void
     addRule(action: string | string[], fn: Callback): void
 
@@ -31,14 +32,15 @@ declare module 'diagram-js/lib/features/rules/Rules' {
 
 declare module 'diagram-js/lib/features/rules/RuleProvider' {
   import { EventBus } from 'diagram-js/lib/core'
+  import BaseCommandInterceptor from 'diagram-js/lib/command/CommandInterceptor'
   import { RuleProvider, Callback } from 'diagram-js/lib/features/rules'
 
-  export default abstract class BaseRuleProvider implements RuleProvider {
+  export default abstract class BaseRuleProvider extends BaseCommandInterceptor implements RuleProvider {
     constructor(eventBus: EventBus)
 
     addRule(action: string | string[], priority: number, fn: Callback): void
     addRule(action: string | string[], fn: Callback): void
 
-    abstract init(): void
+    init(): void
   }
 }
