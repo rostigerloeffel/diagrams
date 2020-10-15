@@ -7,6 +7,8 @@ declare module 'diagram-js/lib/layout/BaseLayouter' {
     connectionEnd?: Point
     source?: Point
     target?: Point
+    preferredLayouts?: string[]
+    preserveDocking?: string
     [other: string]: any
   }
 
@@ -19,9 +21,14 @@ declare module 'diagram-js/lib/layout/ManhattanLayout' {
   import { Point, Bounds } from 'diagram-js/lib/core'
   import { LayoutingHints } from 'diagram-js/lib/layout/BaseLayouter'
 
-  export interface ManhattanHints extends LayoutingHints {
-    preferredLayouts?: string[]
-  }
+  export function connectPoints(a: Point, b: Point, directions: string): Point[]
+  export function connectRectangles(
+    source: Bounds,
+    target: Bounds,
+    start: Point,
+    end: Point,
+    hints: LayoutingHints
+  ): Point[]
 
   export function repairConnection(
     source: Bounds,
@@ -29,8 +36,17 @@ declare module 'diagram-js/lib/layout/ManhattanLayout' {
     start: Point,
     end: Point,
     waypoints: Point[],
-    hints: ManhattanHints
+    hints: LayoutingHints
   ): Point[]
+  export function repairConnection(source: Bounds, target: Bounds, waypoints: Point[], hints: LayoutingHints): Point[]
+
+  export function tryLayoutStraight(
+    source: Bounds,
+    target: Bounds,
+    start: Point,
+    end: Point,
+    hints: LayoutingHints
+  ): Point[] | null
 
   export function withoutRedundantPoints(waypoints: Point[]): Point[]
 }
