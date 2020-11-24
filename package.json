@@ -4,10 +4,12 @@
   "scripts": {
     "type-check": "lerna exec -- tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
-    "build": "npm run build:types && npm run build:js",
-    "build:types": "lerna exec -- tsc --emitDeclarationOnly",
-    "build:js": "lerna exec -- babel --config-file ../../.babelrc src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
-    "link": "lerna exec -- npm link"
+    "build": "npm run build:types && npm run build:mapper",
+    "build:types": "lerna exec --scope=@types/* -- tsc --emitDeclarationOnly",
+    "build:mapper": "lerna exec --scope=diagram-mapper -- tsc",
+    "link": "lerna exec -- npm link",
+    "sample": "lerna exec --scope=diagram-mapper-sample -- npm run start",
+    "presample": "npm run build:mapper"
   },
   "devDependencies": {
     "@babel/cli": "^7.11.6",
@@ -15,15 +17,30 @@
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-typescript": "^7.10.4",
+    "@types/diagram-js": "file:../diagram-js",
+    "@types/didi": "file:../didi",
+    "@types/lodash": "^4.14.165",
     "@typescript-eslint/eslint-plugin": "^4.2.0",
     "@typescript-eslint/parser": "^4.2.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.1.1",
+    "css-loader": "^4.3.0",
     "eslint": "^7.9.0",
+    "html-webpack-plugin": "^4.5.0",
     "lerna": "^3.22.1",
-    "typescript": "^4.0.2"
+    "style-loader": "^1.2.1",
+    "svg-url-loader": "^6.0.0",
+    "ts-loader": "^8.0.4",
+    "typescript": "^4.0.3",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
     "@types/diagram-js": "file:packages\\diagram-js",
     "@types/diagram-js-direct-editing": "file:packages\\diagram-js-direct-editing",
-    "@types/didi": "file:packages\\didi"
+    "@types/didi": "file:packages\\didi",
+    "diagram-mapper": "file:packages\\diagram-mapper",
+    "diagram-mapper-sample": "file:packages\\diagram-mapper-sample"
   }
 }
