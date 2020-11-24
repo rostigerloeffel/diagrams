@@ -1,0 +1,23 @@
+{
+  "name": "diagram-mapper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@types/didi": "file:../didi"
+  },
+  "dependencies": {
+    "diagram-js": "^6.7.0",
+    "elkjs": "^0.7.0",
+    "lodash": "^4.17.20"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "diagram-mapper-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.ts",
+  "scripts": {
+    "webpack": "npx webpack --mode development",
+    "watch": "npx webpack --watch",
+    "start": "npx webpack-dev-server --open",
+    "build": "npx webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/didi": "file:../didi"
+  },
+  "dependencies": {
+    "diagram-js": "^6.7.0",
+    "diagram-mapper": "file:../diagram-mapper",
+    "elkjs": "^0.7.0",
+    "lodash": "^4.17.20"
+  }
+}

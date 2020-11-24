@@ -1,0 +1,14 @@
+[data-group='create'] .entry {
+  background-color: black !important;
+}
+
+[data-group='create'] .entry:hover {
+  background-color: rgb(255, 116, 0) !important;
+}
+
+.palette-create-book {
+  -webkit-mask: url(./book.svg) no-repeat 50% 50%;
+  mask: url(./book.svg) no-repeat 50% 50%;
+  -webkit-mask-size: 50%;
+  mask-size: 50%;
+}
